@@ -16,13 +16,13 @@ based on your download location of Wildscenes for use in training and evaluation
 
 
 def main(args):
-        print('Setting up 3D data...')
-        if args.overwrite or not os.path.exists(args.savedir / "wildscenes_opt3d"):
-                wildscenes_converter.create_wildscenes_info_file(
-                        splitdir=args.splitdir / "opt3d",
-                        dset_path=args.dataset_rootdir,
-                        pkl_prefix='wildscenes',
-                        save_path=args.savedir / "wildscenes_opt3d")
+        # print('Setting up 3D data...')
+        # if args.overwrite or not os.path.exists(args.savedir / "wildscenes_opt3d"):
+        #         wildscenes_converter.create_wildscenes_info_file(
+        #                 splitdir=args.splitdir / "opt3d",
+        #                 dset_path=args.dataset_rootdir,
+        #                 pkl_prefix='wildscenes',
+        #                 save_path=args.savedir / "wildscenes_opt3d")
 
         print('Setting up 2D data...')
         if args.overwrite or not os.path.exists(args.savedir / "wildscenes_opt2d"):
@@ -47,7 +47,7 @@ if __name__ == '__main__':
 
         if args.dataset_rootdir is None or not os.path.exists(args.dataset_rootdir):
                 raise ValueError("No dataset directory was provided or provided directory does not exist")
-        if not os.path.exists(args.dataset_rootdir / Path("WildScenes3d")):
+        if not os.path.exists(args.dataset_rootdir / Path("WildScenes2d")):
                 raise ValueError("Could not find WildScenes dataset in the provided directory path")
 
         main(args)
